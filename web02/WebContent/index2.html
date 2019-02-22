@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- http://localhost:8080/web03/RegisterServlet -->
+	<form action="/web03/RegisterServlet" method="post">
+	<!-- id JS ，CSS calss CSS   name后台JAVA -->
+	用户名:<input type = "text" name = "loginName"/>
+	<br/>
+	密   码:<input type = "password" name = "password"/>
+	<input type="hidden" name = "hidden" value = "我是密码隐藏域">
+	
+	<input type="file" name = "filaeName">
+	
+	<input type="checkbox" name = "fruit" value="苹果">(苹果)
+	<input type="checkbox" name = "fruit" value="橘子">(橘子)
+	<input type="checkbox" name = "fruit" value="香蕉">(香蕉)
+	<input type="checkbox" name = "fruit" value="火龙果">(火龙果)
+	
+	<input type="radio" name = "sex" value="男">猛男
+	<input type="radio" name = "sex" value="女">萝莉
+	<input type="radio" name = "sex" value="人妖">泰国
+	
+	<select name = "sel" multiple>
+	<!-- request.getParamater("loginName") request.getParamaterValues("sel")会把你选中的元素的value值给你 -->
+	<option value="苍老师">苍老师</option>
+	<option value="王老师">王老师</option>
+	<option value="李老师">李老师</option>	
+	</select>
+	
+	<textarea name="textarea"></textarea>
+	
+	<input type="submit" value="登陆">
+	</form>
+</body>
+</html>

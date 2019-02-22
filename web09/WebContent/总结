@@ -1,0 +1,23 @@
+JavaWeb中的过滤的概念:
+	对请求和响应进行拦截或者增强的对象，就是过滤器。（重点）
+	
+	拦截请求跟响应
+	
+
+<dispatcher>元素：指定过滤器所拦截的资源被Servlet容器调用的方式，
+可以是REQUEST,INCLUDE,FORWARD和ERROR之一，默认REQUEST
+可以设置多个<dispatcher>子元素用来指定Filter对资源的多种调用方式进行拦截
+
+1.REQUEST：当用户直接访问页面时，web容器将会调用过滤器。如果目标资源是通过RequestDispatcher的include（）或forword（）方法访问时，那么该过滤器就不会被调用
+
+通过GET或POST请求直接访问
+
+2.FORWORD:如果目标资源是通过RequestDispatcher的forward()方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用
+
+或<jsp:forward page="/..."/>或通过page指令的errorPage转发页面。<%@ page errorPage="test.jsp"%>
+
+3.INCLUDE:如果目标资源是通过RequestDispatcher的include（）方法访问时，那么该过滤器将被调用。除此之外，过滤器不会被调用。
+
+或<jsp:include file="/..."/>
+
+4.ERROR:如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用。除此之外，过滤器不会被调用。

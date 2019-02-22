@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>web09</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <filter>
+    <display-name>TestFilter1</display-name>
+    <filter-name>TestFilter1</filter-name>
+    <filter-class>com.igeek.filter.TestFilter1</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>TestFilter1</filter-name>
+    <url-pattern>/TestFilter1</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>TestFilter2</display-name>
+    <filter-name>TestFilter2</filter-name>
+    <filter-class>com.igeek.filter.TestFilter2</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>TestFilter2</filter-name>
+    <url-pattern>/TestFilter2</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <description></description>
+    <display-name>TestServlet</display-name>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>com.igeek.filter.TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/TestServlet</url-pattern>
+  </servlet-mapping>
+    <error-page>
+  	<exception-type>java.lang.ArithmeticException</exception-type>
+  	<location>/lesson1/login.jsp</location>
+  </error-page>
+<!--   <filter>
+    <display-name>EncodingFilter</display-name>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>com.igeek.filter2.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+  </filter-mapping> -->
+  <!-- 下面的过滤器 能解决post  还有get。。。三层装饰者。。。 -->
+  <filter>
+    <display-name>EndEncodingFilter</display-name>
+    <filter-name>EndEncodingFilter</filter-name>
+    <filter-class>com.igeek.filter3.EndEncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>EndEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+  </filter-mapping>
+</web-app>
